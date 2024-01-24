@@ -1,0 +1,25 @@
+{%extends 'base.html' %}
+
+{%block content%}
+
+<main>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% if toy.image %}{{ toy.image.url }}{% else %}/static/path/to/placeholder-image.jpg{% endif %}" class="img-fluid" alt="{{ toy.name }}">
+            </div>
+            <div class="col-md-6">
+                <h2>{{ toy.name }}</h2>
+                <p>{{ toy.description }}</p>
+                <p>Fiyat: {{ toy.price }} $</p>
+                <p>Stok: {{ toy.stock }}</p>
+                <!-- Sepete Ekle Butonu -->
+                <form method="post" action="{% url 'ToyShopapp:addToCart' toy.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Add to cart</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

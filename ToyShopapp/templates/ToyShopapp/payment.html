@@ -1,0 +1,42 @@
+<!-- ToyShopapp/templates/payment.html -->
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+  <div class="container">
+    <h2 class="text-center mb-4">Payment</h2>
+    <form method="post" >
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="card_number" class="form-label">Credit Card Number</label>
+        <input type="text" class="form-control" id="card_number" name="card_number" required>
+      </div>
+      <div class="mb-3">
+        <label for="expiration_date" class="form-label">Expiration Date</label>
+        <input type="text" class="form-control" id="expiration_date" name="expiration_date" placeholder="MM/YYYY" required>
+      </div>
+      <div class="mb-3">
+        <label for="cvv" class="form-label">CVV</label>
+        <input type="text" class="form-control" id="cvv" name="cvv" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="phone" name="phone" required>
+      </div>
+      <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Pay</button>
+    </form>
+  </div>
+{% endblock %}
+
+  
+  
+
